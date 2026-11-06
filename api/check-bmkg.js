@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       const { error: insertError } = await supabase.from('earthquakes').insert([
         {
           tanggal: gempaBmkg.Tanggal,
-          jam: gempaBmkg.Jam,
+          jam: gempaBmkg.Jam.split(' ')[0],
           datetime: bmkgDateTime,
           coordinates: `(${long}, ${lat})`, // Format Point PostgreSQL: (Longitude, Latitude)
           magnitude: parseFloat(gempaBmkg.Magnitude),
